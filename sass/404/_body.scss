@@ -1,0 +1,58 @@
+body {
+    background-color: #ffffff;
+}
+
+.main-container {
+    position: relative;
+
+    &__center-block {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 265px;
+        text-align: center;
+        @include nodraggable();
+
+        @media screen and (min-width: 1024px) {
+            font-size: 34px;
+            height: 324px;
+        }
+
+        @media screen and (min-width: 1280px) {            
+            height: 430px;
+        }
+
+        & > img {
+            width: 350px;
+            margin-bottom: 5px;
+            @include nodraggable();
+
+            @media screen and (min-width: 1024px) {
+                width: 530px;
+            }
+
+            @media screen and (min-width: 1280px) {
+                width: 726px;
+            }
+        }
+
+        &__text {
+            color: #77bdf1;
+            font-size: 20px;
+            font-weight: 700;
+            font-style: italic;
+            text-transform: uppercase;
+
+            @media screen and (min-width: 1024px) {
+                font-size: 34px;
+
+                & > br {
+                    display: none;
+                }                
+            }
+        }
+    }    
+}
