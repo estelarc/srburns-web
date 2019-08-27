@@ -1,7 +1,20 @@
 .main-container {
     &__agency-block {
         & > div:nth-child(1) {
+            padding-top: 50px;
+
+            @media (min-width: 768px) {
+                padding-top: 0;
+            }
+        }
+
+        @media (min-width: 768px) {
             padding-top: 65px;
+
+            & > div {
+                float: left;
+                width: 50%;
+            }
         }
 
         &__first {
@@ -11,16 +24,30 @@
                 position: absolute;
                 bottom: 45px;
                 right: 0;
+
+                @media (min-width: 480px) {
+                    width: 345px;
+                }
             }
 
             &__typing {
                 position: absolute;
                 bottom: 0;
                 right: 0;
-                width: 285px;
+                width: 250px;
                 font-size: 15px;
                 padding: 10px 0;
                 border-top: 1px solid #777777;
+
+                @media (min-width: 480px) {
+                    width: 345px;
+                    font-size: 18px;
+                    padding: 11px 0;
+                }
+
+                @media (min-width: 768px) {
+                    width: 300px;
+                }
 
                 b {
                     font-weight: 700;
@@ -61,25 +88,43 @@
                     font-size: 13px;
                     padding: 15px 30px;
                     width: 100%;
-                    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));
+                    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));                    
 
                     h4 {
                         font-weight: 800;
                         text-transform: uppercase;
                         letter-spacing: 3px;
                         margin-bottom: 5px;
+                        font-size: 15px;
                     }
 
                     p {
                         text-transform: uppercase;
                         letter-spacing: 3px;
                         margin-bottom: 5px;
+                        font-size: 15px;
                     }
 
                     a {
                         text-decoration: underline;
                         font-size: 14px;
                         color: #ffffff;
+                    }
+
+                    @media (min-width: 480px) {
+                        bottom: 45px;
+
+                        h4 {
+                            font-size: 18px;
+                        }
+
+                        p {
+                            font-size: 18px;
+                        }
+    
+                        a {
+                            font-size: 16px;
+                        }
                     }
                 }
             }
@@ -95,7 +140,7 @@
                 left: 0;
                 display: inline-block;
                 width: 100%;
-                height: 35px;                
+                height: 35px;
                 text-align: left;
                 background-image: url('../img/fondo-srburns.jpg');
                 background-position: bottom right;
@@ -108,6 +153,7 @@
                     background-color: #ffffff;
 
                     button {
+                        font-size: 13px;
                         background-color: transparent;
                         height: 100%;
                         line-height: 35px;
@@ -118,6 +164,11 @@
                         padding: 0 14px;
                         letter-spacing: 1px;
                         @include transition(all 500ms ease 0s);
+
+                        @media (min-width: 480px) {
+                            font-size: 15px;
+                            padding: 0 18px;
+                        }
                     }
                 
                     &.slick-active {
@@ -125,7 +176,19 @@
                             color: #000000;
                         }
                     }
-                }            
+                }
+
+                @media (min-width: 480px) {
+                    height: 45px;
+                }
+            }
+
+            @media (min-width: 768px) {
+                &:after {
+                    clear: both;
+                    height: 0;
+                    content: '';
+                }
             }
         }
     }

@@ -25,3 +25,17 @@ function interactionMenu () {
         $('.menu').toggleClass('active')
     })
 }
+
+
+$(document).ready(function() {
+    $(".title-sorry-msg").lettering();
+    animation();
+  }, 1000);
+  
+  
+  function animation() {
+    var tittleMessage = new TimelineMax();
+    tittleMessage.staggerFromTo(".title-sorry-msg span ", 0.5, 
+    {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
+    {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
+  }
