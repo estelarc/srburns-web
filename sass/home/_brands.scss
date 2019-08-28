@@ -1,0 +1,172 @@
+.main-container {    
+    &__brands {
+        background-image: url('../img/fondo-srburns2.jpg');
+        background-repeat: no-repeat;
+        background-size: 660px;
+        background-position: -30px -300px;
+        position: relative;
+        overflow: hidden;
+
+        &__circle {
+            background-color: #000000;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;           
+            margin: 35px auto;
+            text-align: center;
+            color: #ffffff;
+            padding-top: 50px;
+            position: relative;
+
+            h3 {
+                font-style: italic;
+                font-weight: 400;
+                text-transform: uppercase;
+                font-size: 15px;
+                margin-bottom: 3px;
+            }
+
+            h2 {
+                color: #77BDF1;
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                color: #ffffff;
+                font-weight: 300;
+                width: 150px;
+                margin: 0 auto;
+                font-size: 15px;
+            }
+
+            .keko-img {
+                display: none;
+            }
+
+            @media (min-width: 768px) {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 35px 0 35px 45px;
+            }
+
+            @media (min-width: 1024px) {
+                width: 400px;
+                height: 400px;
+
+                .keko-img {
+                    bottom: 0;
+                    width: 60%;
+                    height: 60%;
+                    right: -60px;
+                    display: block;
+                    position: absolute;
+                    @include nodraggable();
+                    @include bounce-arrow(bounce 2000ms infinite);
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            @media (min-width: 1280px) {
+                width: 500px;
+                height: 500px;
+
+                .keko-img {
+                    bottom: 0;
+                    width: 70%;
+                    height: 70%;
+                    right: -140px;
+                    display: block;
+                    position: absolute;
+                    @include nodraggable();
+                    @include bounce-arrow(bounce 2000ms infinite);
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+
+        &__slider {
+            position: relative;
+            height: 110px;
+            margin-top: 10px;
+
+            &__item {
+                text-align: center;
+
+                img {
+                    display: inline-block;
+                    width: calc(88%/3);
+                }
+            }
+
+            .slick-dots {
+                position: absolute;
+                left: 0;
+                bottom: -40px;
+                text-align: center;
+                width: 100%;
+
+                li {
+                    display: inline-block;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 6px;
+                    background-color: #B9B9B9;
+                    margin: 0 4px;
+                    cursor: pointer;
+                    @include transition(all 500ms ease 0s);
+
+                    &.slick-active {
+                        background-color: #000000;
+                    }
+
+                    button {
+                        display: none;
+                    }
+                }
+            }
+
+            @media (min-width: 768px) {
+                width: 400px;
+                margin: 0 auto;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            @media (min-width: 1024px) {
+                right: 7%;
+                width: 500px;
+                height: auto;
+                margin-top: 5%;
+                position: absolute;
+            }
+
+            @media (min-width: 1280px) {
+                right: 14%;
+            }
+        }       
+        
+        @media (min-width: 768px) {
+            padding-top: 15%;
+            background-size: 790px;
+            background-position: -120px -300px;
+        }
+
+        @media (min-width: 1024px) {
+            padding-top: 5%;
+        }
+
+        @media (min-width: 1280px) {
+            background-size: cover;
+            background-position: -267px -850px;
+         }
+    }
+}

@@ -14,21 +14,64 @@ $(document).ready(function(){
     
     randomPhotos()
 
-    $(window).resize(function() {
-        //setBodyHeight()
+    validateForm()
+
+    window.addEventListener("resize", function () {
+        setBodyHeight()
     })
 })
 
 function loadSliders () {
 
-    $('.main-container__brands__content__slider').slick({
-        infinite: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        dots: true,
-        arrows: false
+    window.addEventListener("resize", function () {
+        if ( document.body.clientWidth > 1024 ) {
+            $('.main-container__brands__slider').slick('unslick');
+        } else {
+            $('.main-container__brands__slider').slick({
+                infinite: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                mobileFirst: true,
+                autoplay: false,
+                dots: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 200,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            autoplay: false,
+                            dots: true,
+                        }
+                    }
+                ]
+            })
+        }
     })
+
+    if ( document.body.clientWidth < 1024 ) {
+        $('.main-container__brands__slider').slick({
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            mobileFirst: true,
+            autoplay: false,
+            dots: true,
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 200,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplay: false,
+                        dots: true,
+                    }
+                }
+            ]
+        })
+    }
 
     $('#tab_diseno').slick({
         infinite: false,
@@ -49,20 +92,22 @@ function loadSliders () {
         nextArrow: '<span class="slick-next"></span>'
     })   
 
-    $('.main-container__what-we-do__slider').slick({
-        infinite: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        dots: true,
-        arrows: false
-    })
+    if (screen.width < 768) {
+        $('.main-container__what-we-do__slider').slick({
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            dots: true,
+            arrows: false
+        })
+    }    
 
-    $('.main-container__agency-block__second').slick({
+    $('.main-container__agency-block__second__slider').slick({
         infinite: false,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
+        //autoplay: true,
         dots: true,
         arrows: false
     })
@@ -74,41 +119,62 @@ function loadSliders () {
 
 function randomPhotos () {
     let min = 1,
-        max = 4
+        max = 4,
+        minOpacity = 1,
+        maxOpacity
+
+    if ( screen.width < 768 ) {
+        maxOpacity = 9
+
+        setInterval(function(){
+            $('.main-container__our-team__photos > div').css('opacity','1')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+        }, 3000)
+
+    } else if ( screen.width >= 768 && screen.width <= 1024 ) {
+        maxOpacity = 12
+
+        setInterval(function(){
+            $('.main-container__our-team__photos > div').css('opacity','1')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+        }, 3000)
+
+    } else if ( screen.width > 1024 ) {
+        maxOpacity = 50
+
+        setInterval(function(){
+            $('.main-container__our-team__photos > div').css('opacity','1')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+            $('.main-container__our-team__photos > div:nth-child(' + (Math.floor(Math.random() * maxOpacity) + minOpacity) + ')').css('opacity','0')
+        }, 3000)
+    }
 
     setInterval(function(){
-        let numRan1 = Math.floor(Math.random() * max) + min,
-            numRan2 = Math.floor(Math.random() * max) + min,
-            numRan3 = Math.floor(Math.random() * max) + min,
-            numRan4 = Math.floor(Math.random() * max) + min,
-            numRan5 = Math.floor(Math.random() * max) + min,
-            numRan6 = Math.floor(Math.random() * max) + min,
-            numRan7 = Math.floor(Math.random() * max) + min,
-            numRan8 = Math.floor(Math.random() * max) + min,
-            numRan9 = Math.floor(Math.random() * max) + min            
-
-        $('#randomPhoto_1').css('background-image','url("./img/team-' + numRan1 + '.jpg")')
-        $('#randomPhoto_2').css('background-image','url("./img/team-' + numRan2 + '.jpg")')
-        $('#randomPhoto_3').css('background-image','url("./img/team-' + numRan3 + '.jpg")')
-        $('#randomPhoto_4').css('background-image','url("./img/team-' + numRan4 + '.jpg")')
-        $('#randomPhoto_5').css('background-image','url("./img/team-' + numRan5 + '.jpg")')
-        $('#randomPhoto_6').css('background-image','url("./img/team-' + numRan6 + '.jpg")')
-        $('#randomPhoto_7').css('background-image','url("./img/team-' + numRan7 + '.jpg")')
-        $('#randomPhoto_8').css('background-image','url("./img/team-' + numRan8 + '.jpg")')
-        $('#randomPhoto_9').css('background-image','url("./img/team-' + numRan9 + '.jpg")')
+        $('.main-container__our-team__photos > div').each(function() {
+            $(this).css('background-image','url("./img/team-' + (Math.floor(Math.random() * max) + min) + '.jpg")')
+        })        
     }, 3000)
 }
 
 function setBodyHeight () {
-    let windows_height = $(window).height(),
-        header_height = $('.header').height()
-    
-    $('.main-container__agency-block > div').height(windows_height - header_height)
-    $('.main-container__what-we-do').height(windows_height - header_height)
-    $('.main-container__projects').height(windows_height - header_height)
-    $('.main-container__brands').height(windows_height - header_height)
-    $('.main-container__our-team').height(windows_height - header_height)
-    $('.main-container__contact').height(windows_height - header_height)    
+    let windows_height = document.body.clientHeight
+        header = document.querySelector('header'),
+        header_height = header.clientHeight
+        
+    document.querySelector('.main-container__agency-block__first').style.height = windows_height
+    document.querySelector('.main-container__agency-block__second').style.height = windows_height - header_height
+    document.querySelector('.main-container__what-we-do').style.height = windows_height - header_height
+    document.querySelector('.main-container__projects').style.height = windows_height - header_height
+    document.querySelector('.main-container__brands').style.height = windows_height - header_height
+    document.querySelector('.main-container__our-team').style.height = windows_height - header_height
+    document.querySelector('.main-container__contact').style.height = windows_height - header_height
 }
 
 function interactionTabs () {
@@ -153,11 +219,19 @@ function interactionMenu () {
 function interactionScroll () {
     let header_height = $('.header').height()
 
-    $(".scroll-down").click(function (){
-        $('html, body').animate({
-            scrollTop: $(".main-container__agency-block__second").offset().top - header_height
-        }, 1000)
-    })
+    if ( screen.width < 768 ) {
+        $(".scroll-down").click(function (){
+            $('html, body').animate({
+                scrollTop: $(".main-container__agency-block__second").offset().top - header_height
+            }, 1000)
+        })
+    } if ( screen.width >= 768 ) {
+        $(".scroll-down").click(function (){
+            $('html, body').animate({
+                scrollTop: $(".main-container__what-we-do").offset().top - header_height
+            }, 1000)
+        })
+    }
 }
 
 let TxtType = function(el, toRotate, period) {
@@ -218,4 +292,48 @@ function loadTypewriter () {
     css.type = "text/css"
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}"
     document.body.appendChild(css)
+}
+
+function validateForm () {
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if ((charCode < 48 || charCode > 57)) 
+            return false;
+        return true;
+    }
+
+    $( "input[name='phone']" ).keypress(isNumberKey);
+
+    $("#contacForm").on('submit', function (evt) {
+        evt.preventDefault()
+    }).validate({
+        rules: {
+            firstname: {
+                required: true,
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            phone : {
+                required: true,
+                minlength: 9,
+                maxlength: 9
+            }
+        },
+        messages: {
+            firstname: {
+                required: 'Ingresa tu nombre'
+            },
+            email: {
+                required: 'Ingresa tu correo',
+                email:  'Email no válido.'
+            },
+            phone: {
+                minlength: 'Celular no válido',
+                required: 'Celular no válido'
+            }
+        },
+    })
 }

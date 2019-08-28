@@ -1,0 +1,230 @@
+.main-container {
+    &__projects {
+        background-image: url('../img/fondo-estrellado.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        color: #ffffff;
+        text-align: center;
+        overflow: hidden;
+        position: relative;    
+
+        h3 {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 15px;
+            padding-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-weight: 700;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        &__tabs {
+            height: 35px;
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            margin-top: 15px;
+
+            &__item {
+                width: 100%;
+
+                span {
+                    display: inline-block;
+                    width: 150px !important;
+                    height: 35px;
+                    border: 1px solid transparent;
+                    border-radius: 25px;
+                    line-height: 35px;
+                    margin: 0 auto;
+                    cursor: pointer;
+                    letter-spacing: 1px;
+                    @include transition(all 500ms ease 0s);
+                }
+
+                &.active{
+                    span {
+                        border: 1px solid #ffffff;
+                    }
+                }
+            }
+
+            .slick-arrow {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                cursor: pointer;
+                z-index: 1;
+                opacity: 1;
+                visibility: visible;
+                @include transition(all 500ms ease 0s);
+            }
+
+            .slick-prev {
+                left: 50px;
+                width: 0; 
+                height: 0; 
+                border-top: 12px solid transparent;
+                border-bottom: 12px solid transparent; 
+                border-right:12px solid #ffffff; 
+            }
+
+            .slick-next {
+                right: 50px;
+                width: 0;
+                height: 0;
+                border-top: 12px solid transparent;
+                border-bottom: 12px solid transparent;
+                border-left: 12px solid #ffffff;
+            }
+
+            .slick-disabled {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        &__slider {
+            height: 316px;
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            @include transition(all 500ms ease 0s);
+
+            &.active {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            &__item {
+
+                img {
+                    margin: 15px auto;
+                    width: 140px;                    
+                }
+
+                span {
+                    cursor: pointer;
+                    display: block;
+                    margin: 0 auto;
+                    width: 110px;
+                    height: 30px;
+                    line-height: 30px;
+                    border-radius: 15px;
+                    background-color: #77BDF1;
+                }
+            }
+
+            .slick-list {
+                overflow: inherit;
+            }
+
+            .slick-dots {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 15px;
+                text-align: center;
+
+                li {
+                    display: inline-block;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 6px;
+                    background-color: rgba(255,255,255, 0.4);
+                    margin: 0 4px;
+                    cursor: pointer;
+                    @include transition(all 500ms ease 0s);
+
+                    &.slick-active {
+                        background-color: #ffffff;
+                    }
+
+                    button {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &__detail {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;            
+            padding: 40px 10px 20px 10px;
+            overflow-y: auto;
+            background-color: #77BDF1;
+            opacity: 0;
+            visibility: hidden;
+            @include transition(all 500ms ease 0s);
+
+            &.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .detail-back {
+                position: absolute;
+                top: 0;
+                left: 10px;
+                background-color: #000000;
+                height: 40px;
+                line-height: 40px;
+                font-size: 13px;
+                padding: 0 10px;
+                cursor: pointer;
+
+                & > img {
+                    vertical-align: middle;
+                }
+            }
+
+            &__multimedia {
+                height: 297px;
+
+                .main-img {
+                    width: 100%;
+                    height: 180px;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: cover;
+                }
+
+                & > img {
+                    float: left;
+                    width: 48%;
+                    margin-top: 10px;
+                }
+
+                .play-img {
+                    margin-right: 4%;
+                }
+            }
+
+            &__text {
+                text-align: left;
+
+                h3 {
+                    font-weight: 700;
+                    font-size: 14px;
+                    font-style: normal;
+                }
+                
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

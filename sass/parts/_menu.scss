@@ -4,12 +4,16 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    height: 445px;
+    height: 305px;
     width: 300px;
     text-align: center;
     position: fixed;
     z-index: 2;
     @include bounce(all 500ms 0s);
+
+    @media (min-width: 768px) {
+        height: 430px;
+    }
 
     &.active {
         left: 0;
@@ -19,12 +23,17 @@
         a {
             color: #77bdf1;
             font-weight: 900;        
-            font-size: 50px;
+            font-size: 34px;
             font-style: italic;
             text-transform: uppercase;
             display: inline-block;
-            padding: 10px;
+            padding: 8px;
             @include transition(all 500ms ease 0s);
+
+            @media (min-width: 768px) {
+                font-size: 50px;
+                padding: 10px;
+            }
 
             &:hover {
                 color: #ffffff;
@@ -33,7 +42,11 @@
     }
 
     &__redes {
-        margin-top: 50px;
+        margin-top: 10px;
+
+        @media (min-width: 768px) {
+            margin-top: 25px;
+        }
 
         a {
             display: inline-block;
