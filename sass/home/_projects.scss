@@ -25,33 +25,111 @@
             letter-spacing: 2px;
         }
 
+        @media (min-width: 768px) {
+            h3 {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            h3 {
+                font-size: 25px;
+                margin-top: 15px;
+            }
+
+            h2 {
+                font-size: 30px;
+                margin-top: 15px;
+            }
+        }
+
+        @media (min-width: 1330px) {
+            h3 {
+                font-size: 30px;
+                margin-top: 20px;
+            }
+
+            h2 {
+                font-size: 35px;
+                margin-top: 20px;
+            }
+        }
+
         &__tabs {
             height: 35px;
             font-size: 14px;
             font-weight: 600;
             position: relative;
             margin-top: 15px;
+            text-decoration: none;
+
+            @media (min-width: 1024px) {
+                margin-top: 35px;
+            }
 
             &__item {
                 width: 100%;
 
                 span {
+                    position: relative;
                     display: inline-block;
                     width: 150px !important;
                     height: 35px;
-                    border: 1px solid transparent;
+                    border: 1px solid #ffffff;
                     border-radius: 25px;
                     line-height: 35px;
                     margin: 0 auto;
                     cursor: pointer;
                     letter-spacing: 1px;
                     @include transition(all 500ms ease 0s);
+                    font-size: 15px;
+
+                    &:before {
+                        position: absolute;
+                        content: '';
+                        width: 0;
+                        display: block;
+                        height: 1px;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        background-color: #ffffff;
+                        @include transition(all 500ms ease 0s);
+                    }
+
+                    @media (min-width: 1024px) {
+                        border: 1px solid transparent;
+                        font-size: 18px;
+                        width: 160px !important;
+                        height: 40px;
+                        line-height: 38px;
+                    }
                 }
 
-                &.active{
-                    span {
-                        border: 1px solid #ffffff;
+                &.active span {
+                    border: 1px solid #ffffff;
+                }
+
+                @media (min-width: 1024px) {
+                    display: inline-block;
+                    width: 180px;
+
+                    &:hover span::before {
+                        width: 80%;
                     }
+
+                    &.active:hover span::before {
+                        width: 0;
+                    }
+                }
+
+                @media (min-width: 1280px) {                    
+                    width: 200px;
                 }
             }
 
@@ -68,8 +146,8 @@
             }
 
             .slick-prev {
-                left: 50px;
-                width: 0; 
+                left: 20px;
+                width: 30px;
                 height: 0; 
                 border-top: 12px solid transparent;
                 border-bottom: 12px solid transparent; 
@@ -77,8 +155,8 @@
             }
 
             .slick-next {
-                right: 50px;
-                width: 0;
+                right: 20px;
+                width: 30px;
                 height: 0;
                 border-top: 12px solid transparent;
                 border-bottom: 12px solid transparent;
@@ -104,11 +182,33 @@
                 visibility: visible;
             }
 
-            &__item {
+            @media (min-width: 768px) {
+                height: 540px;
+            }
 
+            @media (min-width: 1280px) {
+                height: 600px;
+            }
+
+            &__item {
                 img {
                     margin: 15px auto;
-                    width: 140px;                    
+                    width: 140px;
+
+                    @media (min-width: 768px) {
+                        margin: 40px auto;
+                        width: 230px;
+                    }
+
+                    @media (min-width: 1280px) {
+                        margin: 50px auto;
+                        width: 240px;
+                    }
+
+                    @media (min-width: 1280px) {
+                        margin: 50px auto;
+                        width: 280px;
+                    }
                 }
 
                 span {
@@ -119,7 +219,30 @@
                     height: 30px;
                     line-height: 30px;
                     border-radius: 15px;
-                    background-color: #77BDF1;
+                    font-weight: 500;
+                    background-color: #77BDF1;                    
+                    font-size: 16px;
+
+                    &:hover {
+                        background-color: #ffffff;
+                        color: #000000;
+                    }
+
+                    @media (min-width: 768px) {
+                        width: 150px;
+                        height: 50px;
+                        line-height: 50px;
+                        border-radius: 25px;
+                        font-size: 18px;
+                    }
+
+                    @media (min-width: 1280px) {
+                        margin-top: -15px;
+                    }
+
+                    @media (min-width: 1330px) {
+                        margin-top: -22px;
+                    }
                 }
             }
 
@@ -169,6 +292,22 @@
             visibility: hidden;
             @include transition(all 500ms ease 0s);
 
+            @media (min-width: 768px) {
+                padding: 60px 20px 60px 20px;
+            }
+
+            @media (min-width: 1024px) {
+                padding: 60px 40px;
+            }
+
+            @media (min-width: 1280px) {
+                padding: 60px 200px;
+            }
+
+            @media (min-width: 1330px) {
+                padding: 60px 300px;
+            }
+
             &.active {
                 opacity: 1;
                 visibility: visible;
@@ -188,10 +327,24 @@
                 & > img {
                     vertical-align: middle;
                 }
+
+                @media (min-width: 768px) {
+                    height: 60px;
+                    line-height: 60px;
+                    left: 20px;
+                }
+
+                @media (min-width: 1024px) {
+                    left: 200px;
+                }
+
+                @media (min-width: 1330px) {
+                    left: 300px;
+                }
             }
 
             &__multimedia {
-                height: 297px;
+                font-size: 0;
 
                 .main-img {
                     width: 100%;
@@ -199,15 +352,27 @@
                     background-repeat: no-repeat;
                     background-position: center center;
                     background-size: cover;
+
+                    @media (min-width: 768px) {
+                        height: 385px;
+                    }
+
+                    @media (min-width: 1024px) {
+                        height: 521px;
+                    }                    
                 }
 
                 & > img {
-                    float: left;
+                    display: inline-block;
                     width: 48%;
                     margin-top: 10px;
+
+                    @media (min-width: 1024px) {
+                        margin-top: 20px;
+                    }
                 }
 
-                .play-img {
+                .play-img {                    
                     margin-right: 4%;
                 }
             }
@@ -219,10 +384,34 @@
                     font-weight: 700;
                     font-size: 14px;
                     font-style: normal;
+
+                    @media (min-width: 768px) {
+                        font-size: 18px;
+                    }
+
+                    @media (min-width: 1280px) {
+                        font-size: 20px;
+                    }
+
+                    @media (min-width: 1330px) {
+                        font-size: 22px;
+                    }
                 }
                 
                 p {
                     font-size: 14px;
+
+                    @media (min-width: 768px) {
+                        font-size: 18px;
+                    }
+
+                    @media (min-width: 1280px) {
+                        font-size: 20px;
+                    }
+
+                    @media (min-width: 1330px) {
+                        font-size: 22px;
+                    }
                 }
             }
         }

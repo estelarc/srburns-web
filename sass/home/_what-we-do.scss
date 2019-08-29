@@ -3,24 +3,25 @@
         font-size: 0;
 
         @media (min-width: 768px) {
-            & > div:nth-child(1) {
-                display: inline-block;
-                width: 40%;
-                vertical-align: top;
-            }
-
-            & > div:nth-child(2) {
-                display: inline-block;
-                width: 60%;
-                vertical-align: top;
-            }
-        }
+            padding-top: 10%;
+            text-align: center;
+        }        
 
         &__container {
             padding: 0 20px;
 
             @media (min-width: 768px) {
                 padding: 0;
+                display: inline-block;
+                width: 300px;
+                vertical-align: top;
+                margin-right: 80px;
+            }
+
+            @media (min-width: 1280px) {
+                width: 390px;
+                text-align: left;
+                margin-right: 50px;
             }
 
             img.text-img {
@@ -28,6 +29,11 @@
 
                 @media (min-width: 768px) {
                     margin: 25px 0 0 25px;
+                }
+
+                @media (min-width: 1280px) {
+                    width: 260px;
+                    margin: 0;
                 }
             }
 
@@ -40,6 +46,11 @@
                     width: 200px;
                     margin: 25px 0 0 25px;
                 }
+
+                @media (min-width: 1280px) {
+                    width: 300px;
+                    margin: 30px 0 0 25px;
+                }
             }            
 
             img.keko-img {
@@ -49,7 +60,7 @@
                     display: inline-block;
                     margin: 25px 0 0 25px;
                     position: relative;
-                    top: 30px;
+                    top: 10px;
                     left: 40px;
                 }
             }
@@ -57,6 +68,23 @@
 
         &__slider {
             height: 140px;
+
+            @media (min-width: 768px) {
+                padding: 0;
+                display: inline-block;
+                vertical-align: top;
+                width: 200px;
+                margin-top: 80px;
+            }
+
+            @media (min-width: 1024px) {
+                width: 400px;
+                margin-top: 0;
+            }
+
+            @media (min-width: 1280px) {
+                width: 700px;
+            }
             
             &__item {
                 text-align: center;                
@@ -79,10 +107,7 @@
                 }
 
                 @media (min-width: 768px) {
-                    display: inline-block;
-                    width: 130px;
-                    margin: 60px 15px 0 0;
-                    text-align: left;
+                    text-align: center;
 
                     p {
                         width: 100%;
@@ -90,9 +115,26 @@
                     }
                 }
 
-                
-                @media (min-width: 1440px) {
-                    width: 250px;
+                @media (min-width: 1024px) {
+                    display: inline-block;
+                    margin-right: 40px;
+                    margin-top: 30px;
+                    width: 150px;
+                    vertical-align: top;
+                }
+
+                @media (min-width: 1280px) {
+                    width: 180px;
+                    margin-right: 50px;
+                    margin-top: 40px;
+                    
+                    h4 {
+                        font-size: 18px;
+                    }
+
+                    p {                        
+                        font-size: 15px;
+                    }
                 }
             }
 
